@@ -184,7 +184,7 @@ public class Historial extends ActionBarActivity {
             //        });
                     //obteniendo el Item6
                    // String image_url ="http://ddragon.leagueoflegends.com/cdn/5.24.1/img/item/"+response.optString("id")+".png";
-                    UrlImageViewHelper.setUrlDrawable(ivitem6, "http://ddragon.leagueoflegends.com/cdn/5.24.1/img/item/"+response.optString("id")+".png");
+                    UrlImageViewHelper.setUrlDrawable(ivitem6, "http://ddragon.leagueoflegends.com/cdn/5.24.1/img/item/"+part.getItem6()+".png");
             //        Conexion.get("https://global.api.pvp.net/api/lol/static-data/lan/v1.2/item/"+part.getItem6()+"?api_key=5dd8e058-3f90-4f1b-9e8f-be016dba394c",null,new JsonHttpResponseHandler(){
             //            @Override
             //            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

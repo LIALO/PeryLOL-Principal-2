@@ -56,7 +56,7 @@ public class perfilInvocador extends ActionBarActivity {
        ivd = (ImageView)findViewById(R.id.divicion);
 
         icono_invocador = (ImageView)findViewById(R.id.icono_invocador);
-        icono_invocador.setVisibility(View.GONE);
+       // icono_invocador.setVisibility(View.GONE);
         perfil_nombre = (TextView) findViewById(R.id.perfil_nombre);
         // Font path
         String fontPath = "fonts/Friz Quadrata Regular.ttf";
@@ -68,7 +68,7 @@ public class perfilInvocador extends ActionBarActivity {
         //divicion_escrita = (TextView) findViewById(R.id.divicion_escrita);
         nivel = (TextView) findViewById(R.id.invocador_level);
         nombreInvocador = getIntent().getStringExtra("nombre").toLowerCase().replaceAll(" ", "");
-        pop_up(nombreInvocador);
+        //pop_up(nombreInvocador);
 
         //inflando
         contenedor_rankers = (ViewGroup) findViewById(R.id.rankers_invocador);
@@ -80,8 +80,8 @@ public class perfilInvocador extends ActionBarActivity {
                 //Pasar los datos a un JSONObjetc para sacar despues sus datos
                 JSONObject invocadorJson = response.optJSONObject(nombreInvocador);
                 invocador.obtenerInvocador(invocadorJson);
-                String icon = invocador.getIcono();
-               // UrlImageViewHelper.setUrlDrawable(icono_invocador, "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/"+icon+".png");
+
+               UrlImageViewHelper.setUrlDrawable(icono_invocador, "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/"+invocador.getIcono()+".png");
 
                 perfil_nombre.setText(invocador.getNombre());
 
@@ -101,6 +101,7 @@ public class perfilInvocador extends ActionBarActivity {
                             /*
                             Podemos hacer lo del adaptador del layout aqui mismo para que pueda verse enseguida
                              */
+
                             LayoutInflater gordito = LayoutInflater.from(perfilInvocador.this);
                             LinearLayout pantalla_ranker = (LinearLayout) gordito.inflate(R.layout.ranker, null, false);
                             //Aqui ya tenemos que crear todos los wigyet que vallamos a usar para cambiarlos
@@ -113,12 +114,12 @@ public class perfilInvocador extends ActionBarActivity {
                             TextView pl = (TextView) pantalla_ranker.findViewById(R.id.pl);
                             ImageView div_ranked = (ImageView)pantalla_ranker.findViewById(R.id.iv_ranked_div);
                                                         //ahora llenamos los datos
-                            if(i == 0)
+                           /* if(i == 0)
                             {
                                 String division = invocador.getRankerd().get(i).getLiga().toLowerCase();
                                 int id = getResources().getIdentifier("com.example.nabu.perylol.perylol_movil:drawable/"+division, null, null);
                                 ivd.setImageResource(id);
-                            }
+                            }*/
 
                             String tipo_ranked = ReplaceChar(invocador.getRankerd().get(i).getTipo_liga(),"_"," ");
                             tipo_ranker.setText(tipo_ranked);
@@ -158,16 +159,16 @@ public class perfilInvocador extends ActionBarActivity {
                             }
                             */
 
-                        pop_up("Colocando divicion");
+                        //pop_up("Colocando divicion");
                         //divicion_escrita.setText(invocador.getLiga()+" "+invocador.getDivicion());
                     }
                 });
-                if(tiene_divicion==false)
+               /* if(tiene_divicion==false)
                 {
 
                     int id = getResources().getIdentifier("com.example.nabu.perylol.perylol_movil:drawable/provisional", null, null);
                     ivd.setImageResource(id);
-                }
+                }*/
             }
         });
 
